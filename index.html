@@ -29,25 +29,22 @@
 </head>
 <body>
 
-    <h1>Welcome to the Main Page!</h1>
+    <h1>Welcome to Minecraft online! Make sure to open this page in About:blank before you actually use the game, so the system admin does not see the website.</h1>
 
-    <!-- Button to open about:blank in a new window and navigate to the current URL -->
+    <!-- Button to open about:blank in a new window and dynamically load the website -->
     <button onclick="openAboutBlank()">Open in About:Blank</button>
 
     <!-- Button to navigate to the game page with modified text and style -->
-    <a href="game.html" class="play-button">Play Minecraft!</a>
+    <a href="game.html" target="_blank" class="play-button">Play Minecraft!</a>
 
     <script>
         function openAboutBlank() {
-            // Get the current URL
-            var currentURL = window.location.href;
-
             // Open a new window with about:blank
             var newWindow = window.open('about:blank', '_blank');
 
-            // If the new window is successfully opened, replace the URL without adding to the history
+            // If the new window is successfully opened, dynamically load the website
             if (newWindow) {
-                newWindow.location.replace(currentURL);
+                newWindow.location.href = ''; // Replace with your actual website URL
             } else {
                 // Handle if the new window is blocked (e.g., by a pop-up blocker)
                 alert('Please allow pop-ups for this site and try again.');
