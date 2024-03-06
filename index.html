@@ -7,21 +7,29 @@
 </head>
 <body>
 
-    <h1>Welcome to Minecraft 1.8 online! NOTE: before you play the game, make sure to open this window in about:blank and close out the original window so your system admin can't see the website!</h1>
+    <h1>Welcome to the Main Page!</h1>
 
     <!-- Button to open about:blank in a new window and navigate to the current URL -->
     <button onclick="openAboutBlank()">Open in About:Blank</button>
 
-    <!-- Button to navigate to the next page -->
-    <a href="game.html">Play Minecraft!</a>
+    <!-- Button to navigate to the game page -->
+    <a href="game.html">Go to Game Page</a>
 
     <script>
         function openAboutBlank() {
             // Get the current URL
             var currentURL = window.location.href;
             
-            // Open a new window with about:blank and navigate to the current URL
-            window.open('about:blank').location.href = currentURL;
+            // Open a new window with about:blank
+            var newWindow = window.open('about:blank', '_blank');
+            
+            // If the new window is successfully opened, navigate to the current URL
+            if (newWindow) {
+                newWindow.location.href = currentURL;
+            } else {
+                // Handle if the new window is blocked (e.g., by a pop-up blocker)
+                alert('Please allow pop-ups for this site and try again.');
+            }
         }
     </script>
 
