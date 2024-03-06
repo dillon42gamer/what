@@ -29,7 +29,7 @@
 </head>
 <body>
 
-    <h1>Welcome to Minecraft online! Make sure to open this page in About:blank before you actually use the game, so the system admin does not see the website.</h1>
+    <h1>Welcome to the Main Page!</h1>
 
     <!-- Button to open about:blank in a new window and dynamically load the website -->
     <button onclick="openAboutBlank()">Open in About:Blank</button>
@@ -39,16 +39,21 @@
 
     <script>
         function openAboutBlank() {
-            // Open a new window with about:blank
-            var newWindow = window.open('about:blank', '_blank');
+            // Create an anchor element
+            var anchor = document.createElement('a');
 
-            // If the new window is successfully opened, dynamically load the website
-            if (newWindow) {
-                newWindow.location.href = ''; // Replace with your actual website URL
-            } else {
-                // Handle if the new window is blocked (e.g., by a pop-up blocker)
-                alert('Please allow pop-ups for this site and try again.');
-            }
+            // Set the href to about:blank
+            anchor.href = 'about:blank';
+
+            // Set the target to _blank to open in a new window
+            anchor.target = '_blank';
+
+            // Create a click event
+            var clickEvent = document.createEvent('MouseEvents');
+            clickEvent.initEvent('click', true, true);
+
+            // Dispatch the click event on the anchor
+            anchor.dispatchEvent(clickEvent);
         }
     </script>
 
