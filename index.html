@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <style>
+        /* Add CSS styles for the link */
+        .about-blank-link {
+            font-size: 16px;
+            padding: 8px 16px;
+            background-color: #3498db; /* Blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        /* Add CSS styles for the link hover effect */
+        .about-blank-link:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
         /* Add CSS styles for the button */
         .play-button {
             font-size: 20px;
@@ -29,33 +49,13 @@
 </head>
 <body>
 
-    <h1>Welcome to the Main Page!</h1>
+    <h1>Welcome to Minecraft online! Make sure to open this page in About:blank before you actually use the game, so the system admin does not see the website.</h1>
 
-    <!-- Button to open about:blank in a new window and dynamically load the website -->
-    <button onclick="openAboutBlank()">Open in About:Blank</button>
+    <!-- Link to open about:blank without navigating away -->
+    <a href="#" target="_blank" class="about-blank-link" onclick="event.preventDefault(); window.open('about:blank')">Open in About:Blank</a>
 
     <!-- Button to navigate to the game page with modified text and style -->
     <a href="game.html" target="_blank" class="play-button">Play Minecraft!</a>
-
-    <script>
-        function openAboutBlank() {
-            // Create an anchor element
-            var anchor = document.createElement('a');
-
-            // Set the href to about:blank
-            anchor.href = 'about:blank';
-
-            // Set the target to _blank to open in a new window
-            anchor.target = '_blank';
-
-            // Create a click event
-            var clickEvent = document.createEvent('MouseEvents');
-            clickEvent.initEvent('click', true, true);
-
-            // Dispatch the click event on the anchor
-            anchor.dispatchEvent(clickEvent);
-        }
-    </script>
 
 </body>
 </html>
