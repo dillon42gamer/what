@@ -49,7 +49,7 @@
 </head>
 <body>
 
-    <h1>Welcome to the Main Page!</h1>
+    <h1>Welcome to the Main Pagfhjgdhkdhfgdhke!</h1>
 
     <!-- Link to open a new window (_blank) and dynamically load game.html -->
     <a href="#" target="_blank" class="about-blank-link" onclick="event.preventDefault(); openAboutBlankAndLoadGame()">Open in New Window</a>
@@ -65,7 +65,18 @@
             // If the new window is successfully opened
             if (newWindow) {
                 // Write the HTML content directly into the new window's document
-                newWindow.document.write('<html><head><title>Main Page</title></head><body><h1>Welcome to the Main Page!</h1></body></html>');
+                newWindow.document.write(`
+                    <html>
+                        <head>
+                            <title>Main Page</title>
+                        </head>
+                        <body>
+                            <h1>Welcome to the Main Page!</h1>
+                            <!-- Buttons on the about:blank page -->
+                            <a href="game.html" target="_blank" class="play-button">Play Minecraft!</a>
+                        </body>
+                    </html>`
+                );
                 newWindow.document.close();
             } else {
                 // Handle if the new window is blocked (e.g., by a pop-up blocker)
