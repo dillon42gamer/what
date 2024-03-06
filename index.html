@@ -49,22 +49,24 @@
 </head>
 <body>
 
-    <h1>Welcome to the Main P1age!</h1>
+    <h1>Welcome to Minecraft online! Make sure to open this page in About:blank before you actually use the game, so the system admin does not see the website.</h1>
 
-    <!-- Link to open about:blank and dynamically load game.html -->
-    <a href="#" target="_blank" onclick="event.preventDefault(); window.open('about:blank')>Open in About:Blank</a>
+    <!-- Link to open a new window (_blank) and dynamically load game.html -->
+    <a href="#" target="_blank" class="about-blank-link" onclick="event.preventDefault(); openAboutBlankAndLoadGame()">Open in New Window</a>
 
     <!-- Button to navigate to the game page with modified text and style -->
     <a href="game.html" target="_blank" class="play-button">Play Minecraft!</a>
 
     <script>
         function openAboutBlankAndLoadGame() {
-            // Open a new window with about:blank
-            var newWindow = window.open('about:blank', '_blank');
+            // Open a new window with _blank
+            var newWindow = window.open('_blank');
 
-            // If the new window is successfully opened, dynamically load game.html
+            // If the new window is successfully opened
             if (newWindow) {
-                newWindow.location.href = 'game.html';
+                // Write the HTML content directly into the new window's document
+                newWindow.document.write('<html><head><title>Main Page</title></head><body><h1>Welcome to the Main Page!</h1><script>window.location.href = "game.html";</script></body></html>');
+                newWindow.document.close();
             } else {
                 // Handle if the new window is blocked (e.g., by a pop-up blocker)
                 alert('Please allow pop-ups for this site and try again.');
