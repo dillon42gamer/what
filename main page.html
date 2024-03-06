@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Page</title>
+</head>
+<body>
+
+    <h1>Welcome to Minecraft 1.8.8 online! before you launch the actual game, make sure to open this page in about:blank and then close the original page out so it hides the page from your filter.</h1>
+
+    <!-- Button to open about:blank in a new tab -->
+    <button onclick="openAboutBlank()">Open about:blank</button>
+
+    <!-- Button to navigate to the next page -->
+    <button onclick="goToNextPage()">Play Minecraft!</button>
+
+    <script>
+        function openAboutBlank() {
+            window.open('about:blank', '_blank');
+        }
+
+        function goToNextPage() {
+            // Replace 'next_page.html' with the actual URL of your next page
+            window.location.href = 'game.html';
+        }
+    </script>
+
+</body>
+</html>
