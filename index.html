@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <style>
+        /* Add CSS styles for the button */
+        .play-button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        /* Add CSS styles for the button hover effect */
+        .play-button:hover {
+            background-color: white;
+            color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,20 +34,20 @@
     <!-- Button to open about:blank in a new window and navigate to the current URL -->
     <button onclick="openAboutBlank()">Open in About:Blank</button>
 
-    <!-- Button to navigate to the game page -->
-    <a href="game.html">Go to Game Page</a>
+    <!-- Button to navigate to the game page with modified text and style -->
+    <a href="game.html" class="play-button">Play Minecraft!</a>
 
     <script>
         function openAboutBlank() {
             // Get the current URL
             var currentURL = window.location.href;
-            
+
             // Open a new window with about:blank
             var newWindow = window.open('about:blank', '_blank');
-            
-            // If the new window is successfully opened, navigate to the current URL
+
+            // If the new window is successfully opened, replace the URL without adding to the history
             if (newWindow) {
-                newWindow.location.href = currentURL;
+                newWindow.location.replace(currentURL);
             } else {
                 // Handle if the new window is blocked (e.g., by a pop-up blocker)
                 alert('Please allow pop-ups for this site and try again.');
