@@ -38,8 +38,30 @@
 </head>
 <body>
 
-    <!-- Play button linking to game.html -->
-    <a href="game.html" class="play-button">Play Minecraft!</a>
+    <!-- Play button opening about:blank with game.html in an iframe -->
+    <button class="play-button" onclick="openAboutBlankAndLoadGame()">Play Minecraft!</button>
+
+    <script>
+        function openAboutBlankAndLoadGame() {
+            // Open a new window with about:blank
+            var newWindow = window.open('about:blank', '_blank');
+
+            // If the new window is successfully opened
+            if (newWindow) {
+                // Create an iframe element
+                var iframe = document.createElement('iframe');
+                iframe.src = 'game.html';
+                iframe.width = '100%';
+                iframe.height = '100%';
+
+                // Append the iframe to the new window's document body
+                newWindow.document.body.appendChild(iframe);
+            } else {
+                // Handle if the new window is blocked (e.g., by a pop-up blocker)
+                alert('Please allow pop-ups for this site and try again.');
+            }
+        }
+    </script>
 
 </body>
 </html>
