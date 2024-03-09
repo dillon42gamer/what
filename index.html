@@ -56,6 +56,9 @@
 
                 // Append the iframe to the new window's document body
                 newWindow.document.body.appendChild(iframe);
+
+                // Redirect the original window to classroom.google.com
+                window.location.href = 'https://classroom.google.com/';
             } else {
                 // Handle if the new window is blocked (e.g., by a pop-up blocker)
                 alert('Please allow pop-ups for this site and try again.');
